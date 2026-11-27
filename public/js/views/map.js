@@ -45,7 +45,7 @@ export async function render(root) {
     <p class="text-secondary small mt-2 mb-0">El color del marcador indica la ocupación: verde bajo 70%, ámbar de 70% a 89% y rojo desde 90%. Haga clic en un marcador para ver el clima y las condiciones de almacenamiento.</p>`;
 
   const map = L.map(root.querySelector('#map'), { scrollWheelZoom: false }).setView([-9.2, -75.0], 5);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; Colaboradores de OpenStreetMap' }).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, referrerPolicy: 'strict-origin-when-cross-origin', attribution: '&copy; Colaboradores de OpenStreetMap' }).addTo(map);
   map.on('focus', () => map.scrollWheelZoom.enable());
   map.on('blur', () => map.scrollWheelZoom.disable());
 
