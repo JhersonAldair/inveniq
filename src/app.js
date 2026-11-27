@@ -14,6 +14,8 @@ const nm = (...p) => path.join(root, 'node_modules', ...p);
 app.set('trust proxy', 1);
 app.use(helmet({
   contentSecurityPolicy: {
+      // OpenStreetMap exige el encabezado Referer en las peticiones de teselas (política de uso).
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
     useDefaults: true,
     directives: {
       'img-src': ["'self'", 'data:', 'https://tile.openstreetmap.org', 'https://*.tile.openstreetmap.org'],
