@@ -1,6 +1,6 @@
 # InvenIQ
 
-Sistema web de gestión de inventario y almacenes industriales. Proyecto individual del curso Desarrollo de Aplicaciones Web (UNMSM, Ingeniería Industrial, 2026-2).
+Sistema web de gestión de inventario y almacenes industriales. Proyecto del curso Desarrollo de Aplicaciones Web (UNMSM, Ingeniería Industrial, 2026-2).
 
 ## Tecnologías
 
