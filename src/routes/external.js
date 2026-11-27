@@ -25,6 +25,55 @@ function storageAdvice(temp, humidity) {
   return { level: 'optimo', text: 'Condiciones adecuadas para el almacenamiento.' };
 }
 
+/** Proveedor principal: Open-Meteo. */
+async function fromOpenMeteo(lat, lng) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}`
+    + '&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto';
+  const response = await fetch(url, { signal: AbortSignal.timeout(6000) });
+  if (!response.ok) throw new Error(`Open-Meteo HTTP ${response.status}`);
+  const c = (await response.json()).current;
+  return {
+    temperature: c.temperature_2m,
+    humidity: c.relative_humidity_2m,
+    wind: c.wind_speed_10m,
+    description: WEATHER_CODES[c.weather_code] || 'Sin descripción',
+    advice: storageAdvice(c.temperature_2m, c.relative_humidity_2m),
+    source: 'Open-Meteo',
+    time: c.time,
+  };
+}
+
+const MET_SYMBOLS = [
+  ['clearsky', 'Despejado'], ['fair', 'Mayormente despejado'], ['partlycloudy', 'Parcialmente nublado'],
+  ['cloudy', 'Nublado'], ['fog', 'Niebla'], ['thunder', 'Tormenta'], ['sleet', 'Aguanieve'],
+  ['snow', 'Nieve'], ['heavyrain', 'Lluvia intensa'], ['lightrain', 'Lluvia ligera'], ['rain', 'Lluvia'],
+];
+
+/** Proveedor de respaldo: MET Norway (requiere identificar la aplicación en User-Agent). */
+async function fromMetNorway(lat, lng) {
+  const url = `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat.toFixed(4)}&lon=${lng.toFixed(4)}`;
+  const response = await fetch(url, {
+    headers: { 'User-Agent': 'InvenIQ/1.0 (proyecto academico UNMSM)' },
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!response.ok) throw new Error(`MET Norway HTTP ${response.status}`);
+  const first = (await response.json()).properties.timeseries[0];
+  const d = first.data.instant.details;
+  const symbol = ((first.data.next_1_hours || first.data.next_6_hours || {}).summary || {}).symbol_code || '';
+  const match = MET_SYMBOLS.find(([k]) => symbol.includes(k));
+  const temperature = Math.round(d.air_temperature * 10) / 10;
+  const humidity = Math.round(d.relative_humidity);
+  return {
+    temperature,
+    humidity,
+    wind: Math.round(d.wind_speed * 3.6 * 10) / 10,
+    description: match ? match[1] : 'Sin descripción',
+    advice: storageAdvice(temperature, humidity),
+    source: 'MET Norway',
+    time: first.time,
+  };
+}
+
 router.get('/weather', asyncHandler(async (req, res) => {
   const lat = Number(req.query.lat);
   const lng = Number(req.query.lng);
@@ -35,22 +84,14 @@ router.get('/weather', asyncHandler(async (req, res) => {
   const hit = cache.get(key);
   if (hit && Date.now() - hit.at < TTL_MS) return res.json({ ...hit.data, cached: true });
 
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}`
-    + '&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto';
   try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(6000) });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const body = await response.json();
-    const c = body.current;
-    const data = {
-      temperature: c.temperature_2m,
-      humidity: c.relative_humidity_2m,
-      wind: c.wind_speed_10m,
-      description: WEATHER_CODES[c.weather_code] || 'Sin descripción',
-      advice: storageAdvice(c.temperature_2m, c.relative_humidity_2m),
-      source: 'Open-Meteo',
-      time: c.time,
-    };
+    let data;
+    try {
+      data = await fromOpenMeteo(lat, lng);
+    } catch (primaryErr) {
+      logger.warn('Open-Meteo no disponible, se usa el servicio de respaldo', { message: primaryErr.message });
+      data = await fromMetNorway(lat, lng);
+    }
     cache.set(key, { at: Date.now(), data });
     return res.json({ ...data, cached: false });
   } catch (err) {
