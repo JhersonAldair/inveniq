@@ -1,0 +1,25 @@
+# Despliegue en Render: servicio web Node.js + base de datos PostgreSQL gestionada.
+services:
+  - type: web
+    name: inveniq
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run migrate
+    startCommand: npm run seed && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_SSL
+        value: "true"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inveniq-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+databases:
+  - name: inveniq-db
+    plan: free
+    databaseName: inventario
+    user: inven

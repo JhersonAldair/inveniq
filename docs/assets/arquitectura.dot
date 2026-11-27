@@ -1,0 +1,33 @@
+digraph G {
+  rankdir=TB; fontname="Helvetica"; nodesep=0.35; ranksep=0.55; newrank=true;
+  node [fontname="Helvetica", fontsize=12, shape=box, style="rounded,filled", color="#0b4f8a", fillcolor="#e3effc", penwidth=1.4, margin="0.18,0.1"];
+  edge [fontname="Helvetica", fontsize=11, color="#23405f", penwidth=1.3];
+
+  subgraph cluster_cliente { label="CAPA DE PRESENTACIÓN: navegador web"; labeljust=l; style="rounded,dashed"; color="#0b4f8a"; fontcolor="#0b4f8a"; fontsize=13;
+    ui [label="Interfaz\nHTML5 semántico + CSS3\nBootstrap 5 (responsivo)"];
+    js [label="Lógica del cliente\nJavaScript ES2022 (módulos)\nvalidación y tablas dinámicas"];
+    viz [label="Visualización\nChart.js y Leaflet"];
+    ses [label="sessionStorage\n(token JWT)"];
+    geo [label="API Geolocation\ndel navegador", fillcolor="#fff3d6", color="#d97706"];
+    {rank=same; ui; js}
+    {rank=same; viz; ses; geo}
+  }
+  subgraph cluster_servidor { label="CAPA DE APLICACIÓN: Node.js 22 + Express 5"; labeljust=l; style="rounded,dashed"; color="#15803d"; fontcolor="#15803d"; fontsize=13;
+    mw [label="Middleware\nhelmet (CSP), CORS, compresión\nlímite de intentos, JWT, roles", fillcolor="#dcf3e4", color="#15803d"];
+    rt [label="Rutas REST /api\nauth, users, products, warehouses\nmovements, stock, dashboard, external", fillcolor="#dcf3e4", color="#15803d"];
+    sv [label="Servicios de negocio\nstockService: transacciones\ny bloqueo de filas", fillcolor="#dcf3e4", color="#15803d"];
+    orm [label="ORM Sequelize\nmodelos y migraciones", fillcolor="#dcf3e4", color="#15803d"];
+    {rank=same; mw; rt}
+    {rank=same; sv; orm}
+  }
+  db [label="CAPA DE DATOS\nPostgreSQL 16\nusers, warehouses, products, stocks, movements", shape=cylinder, fillcolor="#fde2e2", color="#dc2626"];
+  osm [label="OpenStreetMap\n(mosaicos del mapa)", fillcolor="#fff3d6", color="#d97706"];
+  met [label="Open-Meteo\n(clima, API pública)", fillcolor="#fff3d6", color="#d97706"];
+
+  ui -> js [dir=both]; js -> viz; js -> ses [dir=both]; js -> geo;
+  js -> mw [label="  HTTP/HTTPS, JSON, Bearer", constraint=true];
+  ses -> mw [style=invis]; geo -> mw [style=invis]; viz -> mw [style=invis];
+  mw -> rt; rt -> sv; sv -> orm; orm -> db [label="  SQL"];
+  rt -> met [label="  fetch con caché de 10 min", constraint=false];
+  viz -> osm [label="  HTTPS (imágenes)", constraint=false];
+}

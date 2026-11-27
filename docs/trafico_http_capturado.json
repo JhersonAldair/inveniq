@@ -1,0 +1,472 @@
+[
+ {
+  "method": "GET",
+  "url": "/index.html",
+  "status": 200,
+  "type": "text/html",
+  "size": 4690,
+  "ms": 9,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/css/styles.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 5685,
+  "ms": 44,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap-icons/bootstrap-icons.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 99556,
+  "ms": 45,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap/css/bootstrap.min.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 232360,
+  "ms": 47,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/js/login.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 3157,
+  "ms": 45,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?e34853135f9e39acf64315236852cd5a",
+  "status": 200,
+  "type": "font/woff2",
+  "size": 134012,
+  "ms": 22,
+  "enc": "",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/js/validators.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 3072,
+  "ms": 14,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/api.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 1842,
+  "ms": 14,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 17,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "POST",
+  "url": "/api/auth/login",
+  "status": 200,
+  "type": "application/json",
+  "size": null,
+  "ms": 112,
+  "enc": "",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/app.html",
+  "status": 200,
+  "type": "text/html",
+  "size": 2267,
+  "ms": 17,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap/css/bootstrap.min.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 232360,
+  "ms": 0,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap-icons/bootstrap-icons.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 99556,
+  "ms": 0,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/css/styles.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 5685,
+  "ms": 0,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/leaflet/leaflet.css",
+  "status": 200,
+  "type": "text/css",
+  "size": 14806,
+  "ms": 23,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/js/main.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 2634,
+  "ms": 30,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?e34853135f9e39acf64315236852cd5a",
+  "status": 200,
+  "type": "font/woff2",
+  "size": null,
+  "ms": 0,
+  "enc": "",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/bootstrap/js/bootstrap.bundle.min.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 80669,
+  "ms": 32,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/leaflet/leaflet.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 147552,
+  "ms": 83,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/vendor/chart.js/chart.umd.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 212615,
+  "ms": 85,
+  "enc": "br",
+  "cache": "public, max-age=604800"
+ },
+ {
+  "method": "GET",
+  "url": "/js/api.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 1842,
+  "ms": 0,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/ui.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 7236,
+  "ms": 7,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/validators.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 3072,
+  "ms": 0,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/auth/me",
+  "status": 200,
+  "type": "application/json",
+  "size": 102,
+  "ms": 5,
+  "enc": "",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 1,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/dashboard.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 5037,
+  "ms": 4,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/dashboard",
+  "status": 200,
+  "type": "application/json",
+  "size": 2602,
+  "ms": 13,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/products.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 5500,
+  "ms": 11,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 6,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/table.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 5699,
+  "ms": 7,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/products",
+  "status": 200,
+  "type": "application/json",
+  "size": 6309,
+  "ms": 8,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/warehouses.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 3904,
+  "ms": 8,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 1,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/warehouses",
+  "status": 200,
+  "type": "application/json",
+  "size": 1438,
+  "ms": 25,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/movements.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 8383,
+  "ms": 11,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 8,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/products",
+  "status": 200,
+  "type": "application/json",
+  "size": 6309,
+  "ms": 13,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/api/warehouses",
+  "status": 200,
+  "type": "application/json",
+  "size": 1438,
+  "ms": 20,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/api/movements",
+  "status": 200,
+  "type": "application/json",
+  "size": 64752,
+  "ms": 26,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/map.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 6458,
+  "ms": 7,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 1,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/warehouses",
+  "status": 200,
+  "type": "application/json",
+  "size": 1438,
+  "ms": 15,
+  "enc": "br",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 5,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/js/views/users.js",
+  "status": 200,
+  "type": "text/javascript",
+  "size": 2313,
+  "ms": 12,
+  "enc": "br",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/users",
+  "status": 200,
+  "type": "application/json",
+  "size": 307,
+  "ms": 20,
+  "enc": "",
+  "cache": ""
+ },
+ {
+  "method": "GET",
+  "url": "/favicon.svg",
+  "status": 200,
+  "type": "image/svg+xml",
+  "size": 335,
+  "ms": 7,
+  "enc": "",
+  "cache": "public, max-age=3600"
+ },
+ {
+  "method": "GET",
+  "url": "/api/products",
+  "status": 200,
+  "type": "application/json",
+  "size": 6309,
+  "ms": 13,
+  "enc": "br",
+  "cache": ""
+ }
+]

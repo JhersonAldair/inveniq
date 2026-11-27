@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvenIQ | Panel</title>
+  <meta name="description" content="Panel de gestión de inventario y almacenes industriales">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="navbar iq-topbar sticky-top px-3" style="height:56px">
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-sm text-white d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-label="Abrir menú"><i class="bi bi-list fs-4"></i></button>
+      <a class="iq-brand fs-5" href="#/dashboard"><i class="bi bi-box-seam-fill me-1"></i>InvenIQ</a>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <span class="small text-end d-none d-sm-block lh-sm"><span id="userName" class="fw-semibold"></span><br><span id="userRole" class="badge text-bg-warning"></span></span>
+      <button class="btn btn-sm btn-outline-light" id="logoutBtn" type="button"><i class="bi bi-box-arrow-right"></i><span class="d-none d-md-inline ms-1">Salir</span></button>
+    </div>
+  </header>
+
+  <nav class="offcanvas-lg offcanvas-start iq-sidebar p-3" tabindex="-1" id="sidebar" aria-label="Navegación principal">
+    <div class="offcanvas-header d-lg-none px-0 pt-0">
+      <strong>Menú</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Cerrar"></button>
+    </div>
+    <ul class="nav nav-pills flex-column gap-1" id="navList"></ul>
+  </nav>
+
+  <main class="iq-main" id="view" aria-live="polite"></main>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts"></div>
+
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/chart.js/chart.umd.js"></script>
+  <script src="/vendor/leaflet/leaflet.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

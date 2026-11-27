@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvenIQ | Acceso</title>
+  <meta name="description" content="InvenIQ: gestión de inventario y almacenes industriales">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <section class="auth-hero" aria-label="Presentación">
+      <p class="mb-2 fs-5"><i class="bi bi-box-seam-fill"></i><strong>InvenIQ</strong></p>
+      <h1 class="display-6">Control de inventario y almacenes industriales</h1>
+      <p class="lead mb-4">Stock en tiempo real, alertas de reposición y trazabilidad de cada movimiento.</p>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-speedometer2"></i>Panel de control con indicadores operativos</li>
+        <li><i class="bi bi-geo-alt-fill"></i>Mapa de almacenes con clima de cada sede</li>
+        <li><i class="bi bi-shield-lock-fill"></i>Acceso seguro por roles: administrador y operador</li>
+      </ul>
+    </section>
+
+    <main class="auth-form">
+      <div class="box">
+        <ul class="nav nav-pills nav-fill mb-4" id="authTabs" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active" id="tab-login" data-mode="login" type="button" role="tab">Iniciar sesión</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" id="tab-register" data-mode="register" type="button" role="tab">Crear cuenta</button></li>
+        </ul>
+
+        <div id="alert" class="alert alert-danger d-none" role="alert"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="loginEmail">Correo electrónico</label>
+            <input class="form-control" id="loginEmail" name="email" type="email" autocomplete="username" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="loginPassword">Contraseña</label>
+            <input class="form-control" id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <button class="btn btn-primary w-100" type="submit" id="loginBtn">Ingresar</button>
+          <div class="mt-3 small text-secondary">
+            Cuentas de demostración:<br>
+            <button type="button" class="btn btn-link btn-sm p-0 demo" data-email="admin@inveniq.pe" data-pass="Admin2026!">Administrador</button>
+            &nbsp;|&nbsp;
+            <button type="button" class="btn btn-link btn-sm p-0 demo" data-email="operador@inveniq.pe" data-pass="Operador2026!">Operador</button>
+          </div>
+        </form>
+
+        <form id="registerForm" novalidate class="d-none">
+          <div class="mb-3">
+            <label class="form-label" for="regName">Nombre completo</label>
+            <input class="form-control" id="regName" name="name" autocomplete="name" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regEmail">Correo electrónico</label>
+            <input class="form-control" id="regEmail" name="email" type="email" autocomplete="email" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regPassword">Contraseña</label>
+            <input class="form-control" id="regPassword" name="password" type="password" autocomplete="new-password" required>
+            <div class="form-text">Mínimo 8 caracteres, con al menos una letra y un número.</div>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="regPassword2">Confirmar contraseña</label>
+            <input class="form-control" id="regPassword2" name="password2" type="password" autocomplete="new-password" required>
+            <div class="invalid-feedback"></div>
+          </div>
+          <button class="btn btn-primary w-100" type="submit" id="registerBtn">Crear cuenta</button>
+          <p class="small text-secondary mt-3 mb-0">Las cuentas nuevas se crean con rol de operador. Un administrador puede cambiar el rol.</p>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/js/login.js"></script>
+</body>
+</html>
